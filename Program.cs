@@ -12,12 +12,12 @@ namespace ConsoleApp5
     {
         static void Main(string[] args)
         {
+
             int[] arr = new int[8];
             for (int i = 0; i < arr.Length; i++)
             {
                 Console.WriteLine($"Please enter {8 - i} numbers: ");
-                arr[i] = Convert.ToInt32(Console.ReadLine());
-
+                arr[i] = Convert.ToInt32(getAnumber());
             }
 
             Console.WriteLine();
@@ -31,6 +31,24 @@ namespace ConsoleApp5
                 }
             }
 
+
+
+        }
+        static string getAnumber()
+        {
+            int i;
+            string input;
+            do
+            {
+                input = Console.ReadLine();
+                for (i = 0; i < input.Length; i++)
+                    if (!(input[i] >= 48 && input[i] <= 57))
+                    {
+                        Console.WriteLine("Try again...");
+                        break;
+                    }
+            } while (i < input.Length);
+            return input;
 
         }
     }
